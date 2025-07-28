@@ -1,0 +1,1403 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NutriBurn | Nutritionist Laboni Akter</title>
+    <style>
+        :root {
+            --primary: #2c7873;
+            --secondary: #6fb98f;
+            --light: #f4f9f4;
+            --dark: #021c1e;
+            --accent: #ff7e67;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: var(--light);
+            color: var(--dark);
+            line-height: 1.6;
+        }
+        
+        header {
+            background-color: var(--primary);
+            color: white;
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: white;
+            text-decoration: none;
+        }
+        
+        .logo span {
+            color: var(--accent);
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-links li {
+            margin-left: 2rem;
+        }
+        
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        .nav-links a:hover {
+            color: var(--accent);
+        }
+        
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1498837167922-ddd27525d352');
+            background-size: cover;
+            background-position: center;
+            height: 80vh;
+            display: flex;
+            align-items: center;
+            color: white;
+            text-align: center;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: var(--accent);
+            color: white;
+            padding: 0.8rem 1.8rem;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .btn:hover {
+            background-color: var(--primary);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+        
+        section {
+            padding: 5rem 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+        
+        .section-title p {
+            max-width: 700px;
+            margin: 0 auto;
+            color: #555;
+        }
+        
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 3rem;
+        }
+        
+        .about-img {
+            flex: 1;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        
+        .about-img img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        .about-text {
+            flex: 1;
+        }
+        
+        .about-text h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            color: var(--primary);
+        }
+        
+        .about-text p {
+            margin-bottom: 1.5rem;
+        }
+        
+        .specialties {
+            background-color: #f9f9f9;
+        }
+        
+        .specialty-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .specialty-card {
+            background-color: white;
+            border-radius: 10px;
+            padding: 2rem;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .specialty-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+        }
+        
+        .specialty-card h3 {
+            color: var(--primary);
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+        
+        .specialty-card p {
+            color: #666;
+        }
+        
+        .specialty-card i {
+            font-size: 2.5rem;
+            color: var(--accent);
+            margin-bottom: 1.5rem;
+        }
+        
+        .philosophy {
+            text-align: center;
+            background-color: var(--primary);
+            color: white;
+            padding: 4rem 0;
+        }
+        
+        .philosophy h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .philosophy p {
+            max-width: 800px;
+            margin: 0 auto;
+            font-size: 1.2rem;
+        }
+        
+        .pricing {
+            text-align: center;
+            background-color: var(--light);
+            padding: 4rem 0;
+        }
+        
+        .pricing-container {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            flex-wrap: wrap;
+        }
+        
+        .pricing-card {
+            background-color: white;
+            border-radius: 10px;
+            padding: 2rem;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            width: 300px;
+            color: var(--dark);
+        }
+        
+        .pricing-card h3 {
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+            font-size: 1.5rem;
+        }
+        
+        .pricing-card .price {
+            font-size: 2rem;
+            font-weight: bold;
+            color: var(--accent);
+            margin: 1.5rem 0;
+        }
+        
+        .pricing-card ul {
+            list-style: none;
+            text-align: left;
+            margin-bottom: 2rem;
+        }
+        
+        .pricing-card ul li {
+            margin-bottom: 0.8rem;
+            position: relative;
+            padding-left: 1.5rem;
+        }
+        
+        .pricing-card ul li:before {
+            content: "\f00c";
+            font-family: "Font Awesome 6 Free";
+            font-weight: 900;
+            position: absolute;
+            left: 0;
+            color: var(--secondary);
+        }
+        
+        /* Appointment System Styles */
+        .appointment-system {
+            background-color: #f9f9f9;
+            padding: 5rem 0;
+        }
+        
+        .appointment-steps {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+        
+        .appointment-steps:before {
+            content: '';
+            position: absolute;
+            top: 20px;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background-color: var(--primary);
+            z-index: 1;
+        }
+        
+        .step {
+            text-align: center;
+            position: relative;
+            z-index: 2;
+            width: 25%;
+        }
+        
+        .step-number {
+            width: 40px;
+            height: 40px;
+            background-color: #ddd;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1rem;
+            font-weight: bold;
+            color: #666;
+            border: 3px solid white;
+        }
+        
+        .step.active .step-number {
+            background-color: var(--accent);
+            color: white;
+        }
+        
+        .step.completed .step-number {
+            background-color: var(--primary);
+            color: white;
+        }
+        
+        .step p {
+            font-size: 0.9rem;
+            color: #666;
+        }
+        
+        .step.active p {
+            color: var(--primary);
+            font-weight: 500;
+        }
+        
+        .appointment-content {
+            background-color: white;
+            border-radius: 10px;
+            padding: 3rem;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        
+        .step-panel {
+            display: none;
+        }
+        
+        .step-panel.active {
+            display: block;
+        }
+        
+        .calendar-container {
+            margin: 2rem 0;
+        }
+        
+        .calendar-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+        
+        .calendar-title {
+            font-size: 1.5rem;
+            color: var(--primary);
+        }
+        
+        .calendar-nav {
+            display: flex;
+            gap: 1rem;
+        }
+        
+        .calendar-nav button {
+            background: none;
+            border: none;
+            font-size: 1.2rem;
+            cursor: pointer;
+            color: var(--primary);
+        }
+        
+        .calendar-grid {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 0.5rem;
+        }
+        
+        .calendar-day-header {
+            text-align: center;
+            font-weight: bold;
+            padding: 0.5rem;
+            color: var(--primary);
+        }
+        
+        .calendar-day {
+            border: 1px solid #eee;
+            height: 80px;
+            padding: 0.5rem;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .calendar-day:hover {
+            background-color: #f0f0f0;
+        }
+        
+        .calendar-day.disabled {
+            color: #ccc;
+            background-color: #f9f9f9;
+            cursor: not-allowed;
+        }
+        
+        .calendar-day.active {
+            background-color: var(--primary);
+            color: white;
+        }
+        
+        .calendar-day .date {
+            font-weight: bold;
+        }
+        
+        .calendar-day .slots {
+            font-size: 0.7rem;
+            margin-top: 0.3rem;
+            color: var(--accent);
+        }
+        
+        .calendar-day.active .slots {
+            color: white;
+        }
+        
+        .time-slots {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+        
+        .time-slot {
+            padding: 1rem;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .time-slot:hover {
+            border-color: var(--primary);
+        }
+        
+        .time-slot.selected {
+            background-color: var(--primary);
+            color: white;
+            border-color: var(--primary);
+        }
+        
+        .patient-info-form {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-group.full-width {
+            grid-column: span 2;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            color: #555;
+        }
+        
+        input, select, textarea {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+        
+        .btn-group {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 2rem;
+        }
+        
+        .btn-outline {
+            background: none;
+            border: 2px solid var(--primary);
+            color: var(--primary);
+            padding: 0.7rem 1.5rem;
+            border-radius: 30px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .btn-outline:hover {
+            background-color: #f0f0f0;
+        }
+        
+        .confirmation-details {
+            background-color: #f9f9f9;
+            padding: 2rem;
+            border-radius: 10px;
+            margin-bottom: 2rem;
+        }
+        
+        .detail-row {
+            display: flex;
+            margin-bottom: 1rem;
+        }
+        
+        .detail-label {
+            font-weight: bold;
+            width: 150px;
+            color: #555;
+        }
+        
+        .payment-options {
+            margin-top: 2rem;
+        }
+        
+        .payment-method {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
+            padding: 1rem;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .payment-method:hover {
+            border-color: var(--primary);
+        }
+        
+        .payment-method.selected {
+            border-color: var(--primary);
+            background-color: rgba(44, 120, 115, 0.1);
+        }
+        
+        .payment-method input {
+            width: auto;
+            margin-right: 1rem;
+        }
+        
+        .payment-icon {
+            font-size: 1.5rem;
+            margin-right: 1rem;
+            color: var(--primary);
+        }
+        
+        .payment-details {
+            margin-top: 10px;
+            display: none;
+            padding: 10px;
+            background-color: #f5f5f5;
+            border-radius: 5px;
+        }
+        
+        .payment-details .form-group {
+            margin-bottom: 1rem;
+        }
+        
+        .cta {
+            text-align: center;
+            background-color: var(--secondary);
+            color: white;
+            padding: 5rem 0;
+        }
+        
+        .cta h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .cta p {
+            max-width: 700px;
+            margin: 0 auto 2rem;
+            font-size: 1.1rem;
+        }
+        
+        footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 3rem 0 1rem;
+        }
+        
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+        
+        .footer-section {
+            flex: 1;
+            padding: 0 1.5rem;
+            min-width: 250px;
+            margin-bottom: 1.5rem;
+        }
+        
+        .footer-section h3 {
+            margin-bottom: 1.5rem;
+            font-size: 1.3rem;
+            color: var(--accent);
+        }
+        
+        .footer-section p {
+            margin-bottom: 1rem;
+        }
+        
+        .footer-section a {
+            color: #ddd;
+            text-decoration: none;
+            display: block;
+            margin-bottom: 0.5rem;
+            transition: color 0.3s;
+        }
+        
+        .footer-section a:hover {
+            color: var(--accent);
+        }
+        
+        .contact-info {
+            display: flex;
+            align-items: center;
+            margin-bottom: 0.8rem;
+        }
+        
+        .contact-info i {
+            margin-right: 1rem;
+            color: var(--accent);
+            width: 20px;
+            text-align: center;
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 1.5rem;
+            border-top: 1px solid #444;
+        }
+        
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .about-content {
+                flex-direction: column;
+            }
+            
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            .footer-content {
+                flex-direction: column;
+            }
+            
+            .schedule-container,
+            .pricing-container {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .patient-info-form {
+                grid-template-columns: 1fr;
+            }
+            
+            .form-group.full-width {
+                grid-column: span 1;
+            }
+            
+            .calendar-day {
+                height: 60px;
+                padding: 0.3rem;
+            }
+            
+            .time-slots {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <a href="#" class="logo">Nutri<span>Burn</span></a>
+                <ul class="nav-links">
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#specialties">Specialties</a></li>
+                    <li><a href="#pricing">Pricing</a></li>
+                    <li><a href="#appointment">Appointments</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Transform Your Health Through Nutrition</h1>
+            <p>Scientific, personalized nutrition advice to enhance your quality of life</p>
+            <a href="#appointment" class="btn">Book an Appointment</a>
+        </div>
+    </section>
+
+    <section id="about" class="about">
+        <div class="container">
+            <div class="section-title">
+                <h2>About Laboni Akter</h2>
+                <p>Nutritionist and Dietitian dedicated to improving lives through evidence-based nutrition</p>
+            </div>
+            <div class="about-content">
+                <div class="about-img">
+                    <img src="C:\Users\user\OneDrive\Pictures\Case study march\8326cb24-82a1-4ac6-9da1-2a4fee458f8a.jpeg" alt="Laboni Akter">
+                </div>
+                <div class="about-text">
+                    <h3>Professional Background</h3>
+                    <p>I am Laboni Akter, a graduate from the Institute of Nutrition and Food Science at the University of Dhaka, currently pursuing my postgraduate studies while working as a nutritionist at the American Wellness Centre (AWC).</p>
+                    <p>My goal is to make your life beautiful through science-based nutrition advice and bring new wellness to your daily routine. I pay attention to every aspect of health problems - from gastric issues to complex chronic diseases.</p>
+                    <p>Currently serving at American Wellness Centre (AWC) as a nutritionist, I combine academic knowledge with practical experience to provide the best care for my clients.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="specialties" class="specialties">
+        <div class="container">
+            <div class="section-title">
+                <h2>My Specializations</h2>
+                <p>Comprehensive nutritional guidance for various health conditions</p>
+            </div>
+            <div class="specialty-grid">
+                <div class="specialty-card">
+                    <i class="fas fa-stomach"></i>
+                    <h3>Gastric & IBS</h3>
+                    <p>Proper nutrition planning to reduce stomach complications and manage Irritable Bowel Syndrome effectively.</p>
+                </div>
+                <div class="specialty-card">
+                    <i class="fas fa-kidneys"></i>
+                    <h3>Chronic Kidney Disease</h3>
+                    <p>Special dietary habits and nutritional guidance for kidney care and management of CKD.</p>
+                </div>
+                <div class="specialty-card">
+                    <i class="fas fa-weight"></i>
+                    <h3>Obesity & Diabetes</h3>
+                    <p>Weight control and blood sugar management through proper dietary planning and lifestyle changes.</p>
+                </div>
+                <div class="specialty-card">
+                    <i class="fas fa-allergies"></i>
+                    <h3>Allergies & Skin Conditions</h3>
+                    <p>Dietary plans and lifestyle advice to restore skin health for conditions like vitiligo and psoriasis.</p>
+                </div>
+                <div class="specialty-card">
+                    <i class="fas fa-heartbeat"></i>
+                    <h3>Heart Health & Hypertension</h3>
+                    <p>Coordination of diet and lifestyle for controlling chronic pain and blood pressure.</p>
+                </div>
+                <div class="specialty-card">
+                    <i class="fas fa-female"></i>
+                    <h3>Women's Health (PCOS)</h3>
+                    <p>Proper nutrition planning for women's special problems including PCOS and anemia.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="pricing" class="pricing">
+        <div class="container">
+            <div class="section-title">
+                <h2>Consultation Fees</h2>
+                <p>Affordable pricing for personalized nutrition plans</p>
+            </div>
+            <div class="pricing-container">
+                <div class="pricing-card">
+                    <h3>Initial Consultation</h3>
+                    <div class="price">1,500৳</div>
+                    <ul>
+                        <li>Comprehensive health assessment</li>
+                        <li>Personalized nutrition plan</li>
+                        <li>Dietary analysis</li>
+                        <li>60 minute session</li>
+                        <li>Follow-up recommendations</li>
+                    </ul>
+                    <a href="#appointment" class="btn">Book Now</a>
+                </div>
+                <div class="pricing-card">
+                    <h3>Follow-up Session</h3>
+                    <div class="price">800৳</div>
+                    <ul>
+                        <li>Progress evaluation</li>
+                        <li>Plan adjustments</li>
+                        <li>New recommendations</li>
+                        <li>45 minute session</li>
+                        <li>Ongoing support</li>
+                    </ul>
+                    <a href="#appointment" class="btn">Book Now</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="appointment" class="appointment-system">
+        <div class="container">
+            <div class="section-title">
+                <h2>Book Your Appointment</h2>
+                <p>Simple 4-step process to schedule your consultation</p>
+            </div>
+            
+            <div class="appointment-steps">
+                <div class="step completed">
+                    <div class="step-number">1</div>
+                    <p>Select Date</p>
+                </div>
+                <div class="step active">
+                    <div class="step-number">2</div>
+                    <p>Choose Time</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <p>Your Information</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <p>Confirmation</p>
+                </div>
+            </div>
+            
+            <div class="appointment-content">
+                <!-- Step 1: Select Date -->
+                <div class="step-panel active" id="step1">
+                    <h3>Select Appointment Date</h3>
+                    <p>Choose an available date from the calendar below (Saturday to Wednesday)</p>
+                    
+                    <div class="calendar-container">
+                        <div class="calendar-header">
+                            <div class="calendar-title">November 2023</div>
+                            <div class="calendar-nav">
+                                <button><i class="fas fa-chevron-left"></i></button>
+                                <button><i class="fas fa-chevron-right"></i></button>
+                            </div>
+                        </div>
+                        
+                        <div class="calendar-grid">
+                            <div class="calendar-day-header">Sun</div>
+                            <div class="calendar-day-header">Mon</div>
+                            <div class="calendar-day-header">Tue</div>
+                            <div class="calendar-day-header">Wed</div>
+                            <div class="calendar-day-header">Thu</div>
+                            <div class="calendar-day-header">Fri</div>
+                            <div class="calendar-day-header">Sat</div>
+                            
+                            <!-- Previous month days -->
+                            <div class="calendar-day disabled">
+                                <div class="date">29</div>
+                            </div>
+                            <div class="calendar-day disabled">
+                                <div class="date">30</div>
+                            </div>
+                            <div class="calendar-day disabled">
+                                <div class="date">31</div>
+                            </div>
+                            <!-- Current month days -->
+                            <div class="calendar-day disabled">
+                                <div class="date">1</div>
+                            </div>
+                            <div class="calendar-day disabled">
+                                <div class="date">2</div>
+                            </div>
+                            <div class="calendar-day disabled">
+                                <div class="date">3</div>
+                            </div>
+                            <div class="calendar-day">
+                                <div class="date">4</div>
+                                <div class="slots">4 slots</div>
+                            </div>
+                            <div class="calendar-day disabled">
+                                <div class="date">5</div>
+                            </div>
+                            <div class="calendar-day disabled">
+                                <div class="date">6</div>
+                            </div>
+                            <div class="calendar-day disabled">
+                                <div class="date">7</div>
+                            </div>
+                            <div class="calendar-day">
+                                <div class="date">8</div>
+                                <div class="slots">6 slots</div>
+                            </div>
+                            <div class="calendar-day">
+                                <div class="date">9</div>
+                                <div class="slots">6 slots</div>
+                            </div>
+                            <div class="calendar-day">
+                                <div class="date">10</div>
+                                <div class="slots">6 slots</div>
+                            </div>
+                            <div class="calendar-day">
+                                <div class="date">11</div>
+                                <div class="slots">6 slots</div>
+                            </div>
+                            <div class="calendar-day disabled">
+                                <div class="date">12</div>
+                            </div>
+                            <div class="calendar-day disabled">
+                                <div class="date">13</div>
+                            </div>
+                            <div class="calendar-day disabled">
+                                <div class="date">14</div>
+                            </div>
+                            <div class="calendar-day">
+                                <div class="date">15</div>
+                                <div class="slots">6 slots</div>
+                            </div>
+                            <div class="calendar-day">
+                                <div class="date">16</div>
+                                <div class="slots">6 slots</div>
+                            </div>
+                            <div class="calendar-day">
+                                <div class="date">17</div>
+                                <div class="slots">6 slots</div>
+                            </div>
+                            <div class="calendar-day">
+                                <div class="date">18</div>
+                                <div class="slots">6 slots</div>
+                            </div>
+                            <div class="calendar-day disabled">
+                                <div class="date">19</div>
+                            </div>
+                            <div class="calendar-day disabled">
+                                <div class="date">20</div>
+                            </div>
+                            <div class="calendar-day disabled">
+                                <div class="date">21</div>
+                            </div>
+                            <div class="calendar-day">
+                                <div class="date">22</div>
+                                <div class="slots">6 slots</div>
+                            </div>
+                            <div class="calendar-day">
+                                <div class="date">23</div>
+                                <div class="slots">6 slots</div>
+                            </div>
+                            <div class="calendar-day">
+                                <div class="date">24</div>
+                                <div class="slots">6 slots</div>
+                            </div>
+                            <div class="calendar-day">
+                                <div class="date">25</div>
+                                <div class="slots">6 slots</div>
+                            </div>
+                            <div class="calendar-day disabled">
+                                <div class="date">26</div>
+                            </div>
+                            <div class="calendar-day disabled">
+                                <div class="date">27</div>
+                            </div>
+                            <div class="calendar-day disabled">
+                                <div class="date">28</div>
+                            </div>
+                            <div class="calendar-day">
+                                <div class="date">29</div>
+                                <div class="slots">6 slots</div>
+                            </div>
+                            <div class="calendar-day">
+                                <div class="date">30</div>
+                                <div class="slots">6 slots</div>
+                            </div>
+                            <!-- Next month days -->
+                            <div class="calendar-day disabled">
+                                <div class="date">1</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="btn-group">
+                        <button class="btn btn-outline" disabled>Back</button>
+                        <button class="btn" onclick="nextStep(1)">Next: Choose Time</button>
+                    </div>
+                </div>
+                
+                <!-- Step 2: Choose Time -->
+                <div class="step-panel" id="step2">
+                    <h3>Select Appointment Time</h3>
+                    <p>Available time slots for Saturday, November 4, 2023 (6:00 PM - 10:00 PM)</p>
+                    
+                    <div class="time-slots">
+                        <div class="time-slot">
+                            <div>6:00 PM</div>
+                            <small>45 min</small>
+                        </div>
+                        <div class="time-slot selected">
+                            <div>6:45 PM</div>
+                            <small>45 min</small>
+                        </div>
+                        <div class="time-slot">
+                            <div>7:30 PM</div>
+                            <small>45 min</small>
+                        </div>
+                        <div class="time-slot">
+                            <div>8:15 PM</div>
+                            <small>45 min</small>
+                        </div>
+                        <div class="time-slot">
+                            <div>9:00 PM</div>
+                            <small>45 min</small>
+                        </div>
+                        <div class="time-slot">
+                            <div>9:45 PM</div>
+                            <small>45 min</small>
+                        </div>
+                    </div>
+                    
+                    <div class="btn-group">
+                        <button class="btn btn-outline" onclick="prevStep(2)">Back</button>
+                        <button class="btn" onclick="nextStep(2)">Next: Your Information</button>
+                    </div>
+                </div>
+                
+                <!-- Step 3: Patient Information -->
+                <div class="step-panel" id="step3">
+                    <h3>Your Information</h3>
+                    <p>Please provide your details to complete the booking</p>
+                    
+                    <div class="patient-info-form">
+                        <div class="form-group">
+                            <label for="full-name">Full Name</label>
+                            <input type="text" id="full-name" placeholder="Your full name">
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Phone Number</label>
+                            <input type="tel" id="phone" placeholder="01XXXXXXXXX">
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" placeholder="your@email.com">
+                        </div>
+                        <div class="form-group">
+                            <label for="consult-type">Consultation Type</label>
+                            <select id="consult-type">
+                                <option value="new">New Consultation (1,500৳)</option>
+                                <option value="followup">Follow-up (800৳)</option>
+                            </select>
+                        </div>
+                        <div class="form-group full-width">
+                            <label for="health-concerns">Health Concerns</label>
+                            <textarea id="health-concerns" rows="4" placeholder="Briefly describe your health concerns or goals"></textarea>
+                        </div>
+                    </div>
+                    
+                    <div class="btn-group">
+                        <button class="btn btn-outline" onclick="prevStep(3)">Back</button>
+                        <button class="btn" onclick="nextStep(3)">Next: Confirmation</button>
+                    </div>
+                </div>
+                
+                <!-- Step 4: Confirmation -->
+                <div class="step-panel" id="step4">
+                    <h3>Confirm Your Appointment</h3>
+                    <p>Please review your appointment details before confirmation</p>
+                    
+                    <div class="confirmation-details">
+                        <div class="detail-row">
+                            <div class="detail-label">Date:</div>
+                            <div>Saturday, November 4, 2023</div>
+                        </div>
+                        <div class="detail-row">
+                            <div class="detail-label">Time:</div>
+                            <div>6:45 PM - 7:30 PM (45 minutes)</div>
+                        </div>
+                        <div class="detail-row">
+                            <div class="detail-label">Consultation Type:</div>
+                            <div>New Consultation</div>
+                        </div>
+                        <div class="detail-row">
+                            <div class="detail-label">Fee:</div>
+                            <div>1,500৳</div>
+                        </div>
+                        <div class="detail-row">
+                            <div class="detail-label">Name:</div>
+                            <div>John Doe</div>
+                        </div>
+                        <div class="detail-row">
+                            <div class="detail-label">Phone:</div>
+                            <div>01869260464</div>
+                        </div>
+                        <div class="detail-row">
+                            <div class="detail-label">Email:</div>
+                            <div>john.doe@example.com</div>
+                        </div>
+                    </div>
+                    
+                    <div class="payment-options">
+                        <h4>Select Payment Method</h4>
+                        
+                        <div class="payment-method selected">
+                            <input type="radio" name="payment" id="bkash" checked>
+                            <div class="payment-icon"><i class="fas fa-mobile-alt"></i></div>
+                            <div>
+                                <label for="bkash">bKash</label>
+                                <p>Send payment to 01869260464 (Personal)</p>
+                                <div class="payment-details" id="bkash-details">
+                                    <div class="form-group">
+                                        <label for="bkash-number">Your bKash Number</label>
+                                        <input type="text" id="bkash-number" placeholder="01XXXXXXXXX">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="bkash-transaction">Transaction ID</label>
+                                        <input type="text" id="bkash-transaction" placeholder="Enter transaction ID">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="bkash-amount">Amount Sent</label>
+                                        <input type="text" id="bkash-amount" placeholder="Enter amount">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="payment-method">
+                            <input type="radio" name="payment" id="nagad">
+                            <div class="payment-icon"><i class="fas fa-wallet"></i></div>
+                            <div>
+                                <label for="nagad">Nagad</label>
+                                <p>Send payment to 01869260464 (Personal)</p>
+                                <div class="payment-details" id="nagad-details">
+                                    <div class="form-group">
+                                        <label for="nagad-number">Your Nagad Number</label>
+                                        <input type="text" id="nagad-number" placeholder="01XXXXXXXXX">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="nagad-transaction">Transaction ID</label>
+                                        <input type="text" id="nagad-transaction" placeholder="Enter transaction ID">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="nagad-amount">Amount Sent</label>
+                                        <input type="text" id="nagad-amount" placeholder="Enter amount">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="payment-method">
+                            <input type="radio" name="payment" id="bank">
+                            <div class="payment-icon"><i class="fas fa-university"></i></div>
+                            <div>
+                                <label for="bank">Bank Transfer</label>
+                                <p>Dutch Bangla Bank Limited</p>
+                                <p>Account Number 4840610005984770</p>
+                                <p>New Market Branch,Dhaka</p>
+                                <div class="payment-details" id="bank-details">
+                                    <div class="form-group">
+                                        <label for="bank-name">Bank Name</label>
+                                        <input type="text" id="bank-name" placeholder="Enter bank name">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="bank-transaction">Transaction ID/Ref</label>
+                                        <input type="text" id="bank-transaction" placeholder="Enter transaction reference">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="bank-amount">Amount Sent</label>
+                                        <input type="text" id="bank-amount" placeholder="Enter amount">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="btn-group">
+                        <button class="btn btn-outline" onclick="prevStep(4)">Back</button>
+                        <button class="btn" onclick="confirmAppointment()">Confirm & Book Appointment</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="philosophy">
+        <div class="container">
+            <h2>My Nutrition Philosophy</h2>
+            <p>I believe that proper nutrition is not just about curing diseases, but rather one of the most powerful tools for improving quality of life. My main objective is to provide personalized, scientific and effective nutrition systems for each patient.</p>
+        </div>
+    </section>
+
+    <section id="contact" class="cta">
+        <div class="container">
+            <h2>Ready to Start Your Health Journey?</h2>
+            <p>Join us and learn how proper diet and nutrition can make you healthy, vibrant and confident.</p>
+            <a href="#appointment" class="btn">Book Your Consultation Today</a>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>NutriBurn</h3>
+                    <p>Where your healthy lifestyle begins. Scientific, personalized nutrition advice to transform your health and wellbeing.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <a href="#about">About</a>
+                    <a href="#specialties">Services</a>
+                    <a href="#pricing">Pricing</a>
+                    <a href="#appointment">Appointments</a>
+                    <a href="#contact">Contact</a>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact Info</h3>
+                    <div class="contact-info">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <p>American Wellness Centre, Dhaka</p>
+                    </div>
+                    <div class="contact-info">
+                        <i class="fas fa-phone"></i>
+                        <p>01869260464</p>
+                    </div>
+                    <div class="contact-info">
+                        <i class="fas fa-envelope"></i>
+                        <p>laboniakter.infs@gmail.com</p>
+                    </div>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 NutriBurn. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Simple step navigation
+        function nextStep(current) {
+            document.getElementById(`step${current}`).classList.remove('active');
+            document.getElementById(`step${current+1}`).classList.add('active');
+            
+            document.querySelectorAll('.step').forEach((step, index) => {
+                step.classList.remove('active', 'completed');
+                if (index < current) step.classList.add('completed');
+                if (index === current) step.classList.add('active');
+            });
+        }
+        
+        function prevStep(current) {
+            document.getElementById(`step${current}`).classList.remove('active');
+            document.getElementById(`step${current-1}`).classList.add('active');
+            
+            document.querySelectorAll('.step').forEach((step, index) => {
+                step.classList.remove('active', 'completed');
+                if (index < current-1) step.classList.add('completed');
+                if (index === current-1) step.classList.add('active');
+            });
+        }
+        
+        // Time slot selection
+        document.querySelectorAll('.time-slot').forEach(slot => {
+            slot.addEventListener('click', function() {
+                document.querySelectorAll('.time-slot').forEach(s => s.classList.remove('selected'));
+                this.classList.add('selected');
+            });
+        });
+        
+        // Payment method selection
+        document.querySelectorAll('input[name="payment"]').forEach(radio => {
+            radio.addEventListener('change', function() {
+                // Hide all payment details first
+                document.querySelectorAll('.payment-details').forEach(details => {
+                    details.style.display = 'none';
+                });
+                
+                // Show selected payment details
+                const detailsId = this.id + '-details';
+                document.getElementById(detailsId).style.display = 'block';
+                
+                // Update UI for selected method
+                document.querySelectorAll('.payment-method').forEach(method => {
+                    method.classList.remove('selected');
+                });
+                this.closest('.payment-method').classList.add('selected');
+            });
+        });
+        
+        // Calendar day selection
+        document.querySelectorAll('.calendar-day:not(.disabled)').forEach(day => {
+            day.addEventListener('click', function() {
+                document.querySelectorAll('.calendar-day').forEach(d => d.classList.remove('active'));
+                this.classList.add('active');
+            });
+        });
+        
+        // Consultation type change
+        document.getElementById('consult-type').addEventListener('change', function() {
+            const feeElement = document.querySelector('.detail-row:nth-child(4) div:last-child');
+            if (this.value === 'new') {
+                feeElement.textContent = '1,500৳';
+            } else {
+                feeElement.textContent = '800৳';
+            }
+        });
+        
+        // Form validation before submission
+        function confirmAppointment() {
+            const selectedPayment = document.querySelector('input[name="payment"]:checked').id;
+            let isValid = true;
+            
+            // Validate bKash payment
+            if (selectedPayment === 'bkash') {
+                const bkashNumber = document.getElementById('bkash-number').value;
+                const bkashTransaction = document.getElementById('bkash-transaction').value;
+                const bkashAmount = document.getElementById('bkash-amount').value;
+                
+                if (!bkashNumber || !bkashTransaction || !bkashAmount) {
+                    alert('Please fill all bKash payment details');
+                    isValid = false;
+                } else if (!/^01[3-9]\d{8}$/.test(bkashNumber)) {
+                    alert('Please enter a valid bKash number');
+                    isValid = false;
+                }
+            }
+            
+            // Validate Nagad payment
+            if (selectedPayment === 'nagad') {
+                const nagadNumber = document.getElementById('nagad-number').value;
+                const nagadTransaction = document.getElementById('nagad-transaction').value;
+                const nagadAmount = document.getElementById('nagad-amount').value;
+                
+                if (!nagadNumber || !nagadTransaction || !nagadAmount) {
+                    alert('Please fill all Nagad payment details');
+                    isValid = false;
+                } else if (!/^01[3-9]\d{8}$/.test(nagadNumber)) {
+                    alert('Please enter a valid Nagad number');
+                    isValid = false;
+                }
+            }
+            
+            // Validate Bank payment
+            if (selectedPayment === 'bank') {
+                const bankName = document.getElementById('bank-name').value;
+                const bankTransaction = document.getElementById('bank-transaction').value;
+                const bankAmount = document.getElementById('bank-amount').value;
+                
+                if (!bankName || !bankTransaction || !bankAmount) {
+                    alert('Please fill all Bank payment details');
+                    isValid = false;
+                }
+            }
+            
+            if (isValid) {
+                // In a real implementation, this would send data to a server
+                alert('Appointment booked successfully! You will receive a confirmation shortly.');
+                
+                // Reset form
+                document.querySelectorAll('.step-panel').forEach(panel => panel.classList.remove('active'));
+                document.getElementById('step1').classList.add('active');
+                document.querySelectorAll('.step').forEach(step => {
+                    step.classList.remove('active', 'completed');
+                });
+                document.querySelector('.step:nth-child(1)').classList.add('completed');
+                document.querySelector('.step:nth-child(2)').classList.add('active');
+                
+                // Clear form inputs
+                document.querySelectorAll('input, textarea').forEach(input => {
+                    if (input.type !== 'radio' && input.type !== 'button') {
+                        input.value = '';
+                    }
+                });
+            }
+        }
+    </script>
+</body>
+</html>
